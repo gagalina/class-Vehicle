@@ -1,13 +1,13 @@
 class Vehicle{
 	
-	constructor(name, price){
+	constructor(name, price, move){
 		this.name = name;
 		this.price = price;
+		this.move = move;
 		
 	}
 	
-	go(move){
-		this.move = move;
+	go(){
 		console.log(this.name + " " + this.move + "`s");
 	}
 
@@ -17,8 +17,8 @@ class Vehicle{
 }
 
 class Car extends Vehicle{
-	constructor(brand, price, country, model, engine){
-		super(brand, price);
+	constructor(brand, move, price, country, model, engine){
+		super(brand, price, move);
 		this.model = model;
 		this.country = country;
 		this.engine = engine;
@@ -30,8 +30,8 @@ class Car extends Vehicle{
 }
 
 class Plane extends Vehicle{
-	constructor(brand, model, country, type){
-		super(brand);
+	constructor(brand, move, model, country, type){
+		super(brand, move);
 		this.model = model;
 		this.country = country;
 		this.type = type;
@@ -42,8 +42,8 @@ class Plane extends Vehicle{
 }
 
 class Cycle extends Vehicle{
-		constructor(brand, country, type, counOfWheels){
-		super(brand);
+		constructor(brand, move, country, type, counOfWheels){
+		super(brand, move);
 		this.country = country;
 		this.type = type;
 		this.counOfWheels = counOfWheels;	
@@ -53,17 +53,10 @@ class Cycle extends Vehicle{
 	}
 }
 
-let tesla = new Car("Tesla", 90, "USA", "S", "Electrical");
+let tesla = new Car("Tesla", "ride", 90, "USA", "S", "Electrical");
 let teslaStr = tesla.toString();
 console.log(teslaStr);
-tesla.go("ride");
-
-let boeing = new Plane("Boeing", "737", "USA", "Passenger");
-boeing.go("fly");
-
-
-let trek = new Cycle("Trek", "USA", "mountain", 2);
-trek.go("ride");
+tesla.go();
 
 
 
